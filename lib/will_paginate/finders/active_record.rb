@@ -119,7 +119,7 @@ module WillPaginate::Finders
                 counter.call
               end
 
-      count.respond_to?(:length) ? count.length : count
+      count.respond_to?(:count) ? count.count : count
     end
     
     def wp_parse_count_options(options, klass) #:nodoc:

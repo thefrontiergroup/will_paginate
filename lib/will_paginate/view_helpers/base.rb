@@ -85,7 +85,7 @@ module WillPaginate
       # By default, this method produces HTML output. You can trigger plain
       # text output by passing <tt>:html => false</tt> in options.
       def page_entries_info(collection, options = {})
-        entry_name = options[:entry_name] || (collection.empty?? 'entry' :
+        entry_name = options[:entry_name] || (collection.count == 0 ? 'entry' :
                      collection.first.class.name.underscore.gsub('_', ' '))
         
         plural_name = if options[:plural_name]
@@ -116,7 +116,7 @@ module WillPaginate
         else
           %{Displaying #{plural_name} #{b}%d#{sp}-#{sp}%d#{eb} of #{b}%d#{eb} in total} % [
             collection.offset + 1,
-            collection.offset + collection.length,
+            collection.offset + collection.count,
             collection.total_entries
           ]
         end
