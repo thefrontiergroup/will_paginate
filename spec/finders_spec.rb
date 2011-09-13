@@ -59,9 +59,9 @@ describe WillPaginate::Finders::Base do
   end
 
   it "should provide paginated_each functionality" do
-    collection = stub('collection', :size => 5, :empty? => false, :per_page => 5)
+    collection = stub('collection', :count => 5, :empty? => false, :per_page => 5)
     collection.expects(:each).times(2).returns(collection)
-    last_collection = stub('collection', :size => 4, :empty? => false, :per_page => 5)
+    last_collection = stub('collection', :count => 4, :empty? => false, :per_page => 5)
     last_collection.expects(:each).returns(last_collection)
     
     params = { :order => 'id', :total_entries => 0 }

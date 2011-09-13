@@ -82,7 +82,7 @@ module WillPaginate::Finders
 
       if finder == 'find'
         if Array === args.first and !pager.total_entries
-          pager.total_entries = args.first.size
+          pager.total_entries = args.first.count
         end
         args << :all if args.empty?
       end

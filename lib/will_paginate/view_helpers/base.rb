@@ -108,10 +108,10 @@ module WillPaginate
         end
         
         if collection.total_pages < 2
-          case collection.size
+          case collection.count
           when 0; "No #{plural_name} found"
           when 1; "Displaying #{b}1#{eb} #{entry_name}"
-          else;   "Displaying #{b}all #{collection.size}#{eb} #{plural_name}"
+          else;   "Displaying #{b}all #{collection.count}#{eb} #{plural_name}"
           end
         else
           %{Displaying #{plural_name} #{b}%d#{sp}-#{sp}%d#{eb} of #{b}%d#{eb} in total} % [

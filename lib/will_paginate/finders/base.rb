@@ -83,9 +83,9 @@ module WillPaginate
         
         begin 
           collection = paginate(options)
-          total += collection.each(&block).size
+          total += collection.each(&block).count
           options[:page] += 1
-        end until collection.size < collection.per_page
+        end until collection.count < collection.per_page
         
         total
       end
